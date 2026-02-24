@@ -1,0 +1,7 @@
+Reflection on Active Contours 
+- I had issues at the beginning getting the correct bounding box and having the order correct. I ignored the detail of the image being formatted (x, y) and not being scaled in the YOLO format, which threw me into a lot of errors. Once I found the correct bounding box, I kept getting contours that didn't exactly fit the person. I also found that increasing gaussian blur made the contours closer to the person in the image. 
+- From my original mistake, I thought the width and height of YOLO were based on the point. This made the bounding box too big, which never allowed the active contours to find the correct edges (human). Thus, Active contours are not robust and are dependent on having a good bounding box. 
+- Playing around with the parameters, I noticed that they have a drastic change in how the active curve fits the image. Changing alpha, beta, gamma, and Gaussian blur sigma changes how the snake converges to the person's outline. Since we only played around with one image,I can't really make a generalization, but I think these parameters will most likely need to be tuned for each image, and thus, there is no universal set of parameters that guarantees the best snake. 
+
+# Results 
+![results from active contours](/homework05/img_results.png)
